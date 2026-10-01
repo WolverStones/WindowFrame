@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "windowframe",
+  "version": "${version}",
+  "name": "WindowFrame",
+  "description": "Restores the normal title bar and resizable border of the game window in windowed mode.",
+  "authors": ["Wolverstone"],
+  "contact": {
+    "sources": "https://github.com/WolverStones/WindowFrame",
+    "issues": "https://github.com/WolverStones/WindowFrame/issues"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.wolverstone.windowframe.WindowFrameClient"
+    ]
+  },
+  "mixins": [
+    "windowframe.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": ">=${minecraft_version}",
+    "java": ">=25"
+  }
+}
