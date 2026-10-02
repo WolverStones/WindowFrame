@@ -1,8 +1,9 @@
-# WindowFrame
-
 **Get your normal game window back.** WindowFrame is a tiny client-side Fabric mod that makes sure Minecraft has a proper title bar (minimize / maximize / close) and a resizable border every time it runs in windowed mode.
 
 Fullscreen is never touched, and the mod works on its own as soon as the game starts. There are no buttons and no setup.
+
+> 💡 **Game starts in fullscreen? Press F11 once.**
+> WindowFrame only changes the window in **windowed mode**. If your game was last closed in fullscreen (or your launcher starts it in fullscreen), it will start in fullscreen as usual. Press **F11** once (or turn Fullscreen off in Video Settings) and the window gets its title bar and border. Minecraft remembers this, so every following launch starts directly in a normal window.
 
 ---
 
@@ -10,12 +11,14 @@ Fullscreen is never touched, and the mod works on its own as soon as the game st
 
 - **🪟 Title bar and border in windowed mode.** Minimize, maximize and close buttons, drag-to-resize edges, moving the window, and Win + arrow snapping all work.
 - **🔁 Re-checked when it matters.** The window is checked at startup, when you toggle F11, when you change fullscreen in Video Settings, and when you restore the game from the taskbar.
-- **📐 Fits the window on screen.** If the window covers the whole monitor (title bar off screen) after leaving fullscreen, it is resized to 1280×720 (configurable) and centered.
+- **📐 Fits the window on screen.** If the window covers the whole monitor and its title bar ends up off screen (for example when a launcher starts the game at 1920×1080), it is resized to 1280×720 (configurable) and centered.
 - **🖥️ Leaves fullscreen alone.** Exclusive fullscreen and borderless fullscreen are never touched.
 - **📏 DPI-aware.** It works with Windows display scaling, and the game resizes its framebuffer and GUI normally.
 - **🧩 Modpack-friendly.** It is client-only, has one small mixin, and needs nothing besides Fabric API.
 
 ---
+
+![return title](https://i.imgur.com/NQ4kaaw.png)
 
 ## ⚙️ Configuration
 
@@ -37,6 +40,8 @@ verbose=false
 | `fixOversizedWindow` | Shrinks and centers a window that covers the whole monitor after switching to windowed mode |
 | `defaultWidth` / `defaultHeight` | Size used by `fixOversizedWindow` (never larger than your screen) |
 | `verbose` | Logs the window state on every check, useful when reporting issues |
+
+> 📦 **Modpack makers:** ship `options.txt` with `fullscreen:false` if you want players to start in a framed window right away.
 
 ---
 
@@ -64,6 +69,7 @@ Client-side only. Not needed on servers.
 
 ## ⚠️ Known limitations
 
+- If the game starts in fullscreen, it stays in fullscreen until you press **F11**. This is intentional, so the mod never overrides your fullscreen choice.
 - Only supports **26.3** (SDL3). Minecraft 26.1 and 26.2 use GLFW and are not supported.
 - A maximized window is never resized. If you size the window to fill the whole monitor yourself, it will be shrunk the next time you leave fullscreen. Set `fixOversizedWindow=false` if you don't want that.
 - The title bar color follows your Windows light/dark app mode.

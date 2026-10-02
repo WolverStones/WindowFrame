@@ -10,6 +10,10 @@ Fullscreen (exclusive and the borderless "non-exclusive" fullscreen) is never to
 2. Put `windowframe-<version>.jar` into the `mods` folder (client only, not needed on servers).
 3. Start the game. Nothing else has to be run, the fix applies automatically.
 
+If the game starts in fullscreen (it was last closed in fullscreen, or `fullscreen:true` in `options.txt`), it stays
+in fullscreen. Press **F11** once; the window gets its frame and Minecraft remembers windowed mode for the next launches.
+Modpacks can ship `options.txt` with `fullscreen:false` to start framed right away.
+
 ## Configuration
 
 `config/windowframe.properties` is created on first start:
